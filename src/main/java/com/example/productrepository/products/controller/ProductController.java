@@ -26,4 +26,20 @@ public class ProductController {
         return productService.addProduct(newProduct);
     }
 
+    @GetMapping("{id}")
+    public Product getProductById(@PathVariable String id) {
+        return productService.findById(id);
+    }
+
+    @PutMapping("{id}")
+    public Product putProduct(@PathVariable String id, @RequestBody NewProduct product) {
+        return productService.updateProduct(id, product);
+    }
+
+    @DeleteMapping("{id}")
+    public void deleteProduct(@PathVariable String id) {
+        productService.deleteProduct(id);
+    }
+
+
 }
